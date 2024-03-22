@@ -34,7 +34,11 @@ export default function Home() {
   }
 
   if (!posts) {
-    return <Loading loadingText="Loading posts..." />
+    return <Loading loadingText="Loading posts..." />;
+  }
+
+  if (posts.length === 0) {
+    return <Loading loadingText="No posts to display" />;
   }
 
   return (
@@ -42,5 +46,5 @@ export default function Home() {
       <Typography variant="h3">Posts</Typography>
       {posts.map(post => <PostPreview post={post} />)}
     </>
-  )
+  );
 }
