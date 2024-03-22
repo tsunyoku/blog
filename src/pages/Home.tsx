@@ -33,7 +33,7 @@ export default function Home() {
     </>;
   }
 
-  if (!posts) {
+  if (posts === null) {
     return <Loading loadingText="Loading posts..." />;
   }
 
