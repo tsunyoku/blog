@@ -24,7 +24,7 @@ export default function Home() {
       setError("Failed to fetch posts from API.");
       console.error(reason);
     });
-  });
+  }, []);
 
   if (error) {
     return <>
