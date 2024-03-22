@@ -1,5 +1,5 @@
-import { Alert, Container, Skeleton, Stack, Typography } from "@mui/material";
-import { Post, Post as PostModel } from "../models/Post";
+import { Alert, Typography } from "@mui/material";
+import { Post } from "../models/Post";
 import PostPreview from "../components/PostPreview";
 import { useEffect, useState } from "react";
 import { fetchPosts } from "../adapters/posts";
