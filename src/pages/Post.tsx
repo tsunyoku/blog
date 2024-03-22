@@ -30,7 +30,7 @@ export default function Post() {
       setError("Failed to get post from API.");
       console.error(reason);
     });
-  }, []);
+  }, [postId]);
 
   if (error) {
     return <>
