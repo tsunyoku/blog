@@ -3,6 +3,7 @@ import { Post as PostModel } from "../models/Post"
 import { formatDate } from "date-fns";
 import Markdown from "markdown-to-jsx";
 import Code from "./Code";
+import ScalableImage from "./ScalableImage";
 
 interface PostProps {
   post: PostModel;
@@ -27,7 +28,10 @@ export default function Post({ post }: PostProps) {
                 overrides: {
                   Code: {
                     component: Code
-                  }
+                  },
+                  img: {
+                    component: ScalableImage,
+                  },
                 }
               }}>{post.content}</Markdown>
             </Typography>
