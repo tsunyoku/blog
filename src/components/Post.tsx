@@ -3,7 +3,7 @@ import { Post as PostModel } from "../models/Post"
 import { formatDate } from "date-fns";
 import Markdown from "markdown-to-jsx";
 import Code from "./Code";
-import ScalableImage from "./ScalableImage";
+import ResponsiveImage from "./ResponsiveImage";
 
 interface PostProps {
   post: PostModel;
@@ -30,7 +30,7 @@ export default function Post({ post }: PostProps) {
                     component: Code
                   },
                   img: {
-                    component: ScalableImage,
+                    component: ResponsiveImage,
                   },
                 }
               }}>{post.content}</Markdown>

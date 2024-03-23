@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-interface ScalableImageProps {
+interface ResponsiveImageProps {
   alt: string;
   src: string;
 }
 
-export default function ScalableImage({ alt, src }: ScalableImageProps) {
+export default function ResponsiveImage({ alt, src }: ResponsiveImageProps) {
   let image = new Image();
   image.src = src;
 
