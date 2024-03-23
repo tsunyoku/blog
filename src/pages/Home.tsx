@@ -43,7 +43,6 @@ export default function Home() {
 
   return (
     <>
-      <Typography variant="h3">Posts</Typography>
       {posts.map(post => <PostPreview post={post} />)}
     </>
   );
