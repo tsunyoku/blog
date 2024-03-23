@@ -22,7 +22,6 @@ export default function Post({ post }: PostProps) {
             <Typography variant="subtitle2">
               Published {formatDate(post.publishedAt, "MMMM do yyyy, h:mm:ss a")}
             </Typography>
-            <hr />
             <Typography>
               <Markdown options={{
                 overrides: {

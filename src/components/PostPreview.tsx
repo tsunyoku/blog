@@ -26,7 +26,7 @@ export default function PostPreview({ post }: PostPreviewProps) {
           <Typography variant="subtitle2">
             Published {formatDate(post.publishedAt, "MMMM do yyyy, h:mm:ss a")}
           </Typography>
-          <hr />
+          <br />
           <Typography>
             <Markdown options={{
               overrides: {
@@ -36,7 +36,6 @@ export default function PostPreview({ post }: PostPreviewProps) {
               }
             }}>{partialContent}</Markdown>
           </Typography>
-          <hr />
           <Typography variant="caption">
             <Link component={RouterLink} to={`posts/${post.id}`}>Read more...</Link>
           </Typography>
