@@ -1,6 +1,7 @@
 import React from "react";
 
 interface Context {
+  darkMode: boolean;
 }
 
 export type ContextType = {
@@ -25,7 +26,7 @@ interface Props {
 
 const contextKey = "context";
 const defaultContext: Context = {
-  darkMode: true,
+  darkMode: false,
 };
 
 export const setContextInLocalStorage = (context: Context) => {
