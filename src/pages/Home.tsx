@@ -1,4 +1,4 @@
-import { Alert, Typography } from "@mui/material";
+import { Alert } from "@mui/material";
 import { Post } from "../models/Post";
 import PostPreview from "../components/PostPreview";
 import { useEffect, useState } from "react";
