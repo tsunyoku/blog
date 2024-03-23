@@ -1,4 +1,4 @@
-import { Alert } from "@mui/material";
+import { Alert, Container, Stack } from "@mui/material";
 import { Post } from "../models/Post";
 import PostPreview from "../components/PostPreview";
 import { useEffect, useState } from "react";
@@ -43,7 +43,10 @@ export default function Home() {
 
   return (
     <>
-      {posts.map(post => <PostPreview post={post} />)}
+      <br />
+      <Stack direction="column" spacing={1} justifyContent="center" alignItems="center">
+        {posts.map(post => <PostPreview post={post} />)}
+      </Stack>
     </>
   );
 }
