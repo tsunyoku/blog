@@ -1,6 +1,6 @@
 import { Post } from "../models/Post";
 
-const baseUrl = "https://blog.tsunyoku.xyz/api";
+const baseUrl = "https://blog-api.tsunyoku.xyz";
 
 export async function fetchPosts(): Promise<Post[] | null> {
     const response = await fetch(`${baseUrl}/posts`, {
