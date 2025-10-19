@@ -57,6 +57,11 @@ export function ProfileMenu({ context, setContext }: ProfileMenuProps) {
     checkAuth();
   }, [context.user, context.lastUserCheck, context.darkMode, setContext]);
 
+  // TODO: probably shouldn't exist
+  if (context.user === null) {
+    return null;
+  }
+
   return (
     <>
       <Button
@@ -70,11 +75,11 @@ export function ProfileMenu({ context, setContext }: ProfileMenuProps) {
       >
         <Stack direction="row" alignItems="center" spacing={1}>
           <Typography variant="h6" sx={{ color: "text.primary" }}>
-            {context.user!.username}
+            {context.user.username}
           </Typography>
 
           <Avatar
-            src={context.user!.avatarUrl}
+            src={context.user.avatarUrl}
             variant="rounded"
             sx={{ width: 36, height: 36, borderRadius: "16px" }}
           />
