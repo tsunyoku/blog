@@ -39,28 +39,25 @@ export function ProfileMenu({ context, setContext }: ProfileMenuProps) {
 
   useEffect(() => {
     const checkAuth = async () => {
-      if (context.user !== null) {
-        if (context.lastUserCheck !== null && Date.now() - context.lastUserCheck < TEN_MINUTES_IN_MS) {
-          return;
-        }
-
-        const user = await fetchUser();
-
-        setContext({
-          darkMode: context.darkMode,
-          user: user,
-          lastUserCheck: user !== null ? Date.now() : null,
-        });
+      if (context.user === null) {
+        return;
       }
+
+      if (context.lastUserCheck !== null && Date.now() - context.lastUserCheck < TEN_MINUTES_IN_MS) {
+        return;
+      }
+
+      const user = await fetchUser();
+
+      setContext({
+        darkMode: context.darkMode,
+        user: user,
+        lastUserCheck: user !== null ? Date.now() : null,
+      });
     };
 
     checkAuth();
   }, [context.user, context.lastUserCheck, context.darkMode, setContext]);
-
-  // TODO: probably shouldn't exist
-  if (context.user === null) {
-    return null;
-  }
 
   return (
     <>
@@ -75,11 +72,11 @@ export function ProfileMenu({ context, setContext }: ProfileMenuProps) {
       >
         <Stack direction="row" alignItems="center" spacing={1}>
           <Typography variant="h6" sx={{ color: "text.primary" }}>
-            {context.user.username}
+            {context.user!.username}
           </Typography>
 
           <Avatar
-            src={context.user.avatarUrl}
+            src={context.user!.avatarUrl}
             variant="rounded"
             sx={{ width: 36, height: 36, borderRadius: "16px" }}
           />

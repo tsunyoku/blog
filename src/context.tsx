@@ -39,8 +39,19 @@ export const setContextInLocalStorage = (context: Context) => {
 };
 
 export const fetchContext = () => {
-  const context = localStorage.getItem(contextKey);
-  return context !== null ? JSON.parse(context) as Context : defaultContext;
+  const localStorageContext = localStorage.getItem(contextKey);
+
+  const context = localStorageContext !== null ? JSON.parse(localStorageContext) as Context : defaultContext;
+
+  if (context.user === undefined) {
+    context.user = null;
+  }
+
+  if (context.lastUserCheck === undefined) {
+    context.lastUserCheck = null;
+  }
+
+  return context;
 }
 
 export const ContextProvider: React.FC<Props> = ({ children }) => {
