@@ -3,8 +3,8 @@ import { User } from "./models/User";
 
 export interface Context {
   darkMode: boolean;
-  user: User | null;
-  lastUserCheck: number | null;
+  user?: User | null;
+  lastUserCheck?: number | null;
 }
 
 export type ContextType = {
@@ -41,17 +41,7 @@ export const setContextInLocalStorage = (context: Context) => {
 export const fetchContext = () => {
   const localStorageContext = localStorage.getItem(contextKey);
 
-  const context = localStorageContext !== null ? JSON.parse(localStorageContext) as Context : defaultContext;
-
-  if (context.user === undefined) {
-    context.user = null;
-  }
-
-  if (context.lastUserCheck === undefined) {
-    context.lastUserCheck = null;
-  }
-
-  return context;
+  return localStorageContext !== null ? JSON.parse(localStorageContext) as Context : defaultContext;
 }
 
 export const ContextProvider: React.FC<Props> = ({ children }) => {

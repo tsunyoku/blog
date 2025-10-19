@@ -25,7 +25,7 @@ export function ProfileMenu({ context, setContext }: ProfileMenuProps) {
   }
 
   const handleLogout = async () => {
-    if (context.user === null) {
+    if (context.user == null) {
       return;
     }
 
@@ -39,11 +39,11 @@ export function ProfileMenu({ context, setContext }: ProfileMenuProps) {
 
   useEffect(() => {
     const checkAuth = async () => {
-      if (context.user === null) {
+      if (context.user == null) {
         return;
       }
 
-      if (context.lastUserCheck !== null && Date.now() - context.lastUserCheck < TEN_MINUTES_IN_MS) {
+      if (context.lastUserCheck != null && Date.now() - context.lastUserCheck < TEN_MINUTES_IN_MS) {
         return;
       }
 
@@ -52,7 +52,7 @@ export function ProfileMenu({ context, setContext }: ProfileMenuProps) {
       setContext({
         darkMode: context.darkMode,
         user: user,
-        lastUserCheck: user !== null ? Date.now() : null,
+        lastUserCheck: user != null ? Date.now() : null,
       });
     };
 
@@ -156,7 +156,7 @@ export default function Header() {
                 </IconButton>
               </Tooltip>
 
-              {context.user !== null ? (
+              {context.user != null ? (
                 <ProfileMenu context={context} setContext={setContext} />
               ) : (
                 <Link to="https://blog-api.tsunyoku.xyz/auth/login">
