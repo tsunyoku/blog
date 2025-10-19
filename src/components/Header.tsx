@@ -159,7 +159,7 @@ export default function Header() {
               {context.user != null ? (
                 <ProfileMenu context={context} setContext={setContext} />
               ) : (
-                <Link to="https://blog-api.tsunyoku.xyz/auth/login">
+                <Link to={`https://blog-api.tsunyoku.xyz/auth/login?redirectUri=${window.location.href}`}>
                   <Button variant="contained">
                     <Typography variant="subtitle1">Login</Typography>
                   </Button>
