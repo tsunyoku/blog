@@ -1,7 +1,10 @@
 import React from "react";
+import { User } from "./models/User";
 
-interface Context {
+export interface Context {
   darkMode: boolean;
+  user: User | null;
+  lastUserCheck: number | null;
 }
 
 export type ContextType = {
@@ -27,6 +30,8 @@ interface Props {
 const contextKey = "context";
 const defaultContext: Context = {
   darkMode: false,
+  user: null,
+  lastUserCheck: null,
 };
 
 export const setContextInLocalStorage = (context: Context) => {
