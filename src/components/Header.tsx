@@ -4,6 +4,7 @@ import { Context, useContext } from "../context";
 import { DarkMode, LightMode } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { fetchUser, logout } from "../adapters/auth";
+import { useFeatureFlagEnabled } from "posthog-js/react";
 
 const TEN_MINUTES_IN_MS = 10 * 60 * 1000;
 
@@ -121,6 +122,7 @@ export function ProfileMenu({ context, setContext }: ProfileMenuProps) {
 
 export default function Header() {
   const { context, setContext } = useContext();
+  const authEnabled = useFeatureFlagEnabled('auth');
 
   const toggleDarkMode = () => {
     setContext({
@@ -156,7 +158,7 @@ export default function Header() {
                 </IconButton>
               </Tooltip>
 
-              {context.user != null ? (
+              {authEnabled && (context.user != null ? (
                 <ProfileMenu context={context} setContext={setContext} />
               ) : (
                 <Link to={`https://blog-api.tsunyoku.xyz/auth/login?redirect_uri=${window.location.href}`}>
@@ -164,7 +166,7 @@ export default function Header() {
                     <Typography variant="subtitle1">Login</Typography>
                   </Button>
                 </Link>
-              )}
+              ))}
             </Stack>
           </Stack>
         </Container>
