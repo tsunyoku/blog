@@ -161,7 +161,7 @@ export default function Header() {
               {authEnabled && (context.user != null ? (
                 <ProfileMenu context={context} setContext={setContext} />
               ) : (
-                <Link to={`https://blog-api.tsunyoku.xyz/auth/login?redirect_uri=${window.location.href}`}>
+                <Link to={`https://blog-api.tsunyoku.xyz/auth/login?redirect_uri=${window.location.origin}/auth/callback`}>
                   <Button variant="contained">
                     <Typography variant="subtitle1">Login</Typography>
                   </Button>
