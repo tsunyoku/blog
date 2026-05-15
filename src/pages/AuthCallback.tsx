@@ -18,7 +18,7 @@ export default function AuthCallback() {
 
             navigate("/", { replace: true });
         });
-    }, []);
+    });
 
     return <Loading loadingText="Logging in..." />;
 }
