@@ -23,6 +23,25 @@ export async function fetchPosts(): Promise<Post[] | null> {
     }));
 }
 
+export async function createPost(title: string, content: string): Promise<string | null> {
+    const response = await fetch(`${baseUrl}/posts`, {
+        credentials: "include",
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "User-Agent": "tsunyoku-blog",
+        },
+        body: JSON.stringify({ title, content }),
+    });
+    if (!response.ok) {
+        return null;
+    }
+
+    const responseData = await response.json();
+    return responseData.postId;
+}
+
 export async function fetchPost(postId: string): Promise<Post | null> {
     const response = await fetch(`${baseUrl}/posts/${postId}`, {
         method: "GET",

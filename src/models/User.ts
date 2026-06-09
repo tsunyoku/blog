@@ -3,4 +3,5 @@ export type User = {
     username: string;
     avatarUrl: string;
     countryCode: string;
+    isOwner: boolean;
 }

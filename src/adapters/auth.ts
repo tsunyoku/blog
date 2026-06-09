@@ -22,7 +22,8 @@ export async function fetchUser(): Promise<User | null> {
         id: responseData.id,
         username: responseData.username,
         avatarUrl: responseData.avatarUrl,
-        countryCode: responseData.countryCode
+        countryCode: responseData.countryCode,
+        isOwner: responseData.isOwner === true,
     }
 }
 

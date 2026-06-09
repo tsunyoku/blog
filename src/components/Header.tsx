@@ -159,7 +159,16 @@ export default function Header() {
               </Tooltip>
 
               {authEnabled && (context.user != null ? (
-                <ProfileMenu context={context} setContext={setContext} />
+                <>
+                  {context.user.isOwner && (
+                    <Link to="/posts/new">
+                      <Button variant="contained">
+                        <Typography variant="subtitle1">New Post</Typography>
+                      </Button>
+                    </Link>
+                  )}
+                  <ProfileMenu context={context} setContext={setContext} />
+                </>
               ) : (
                 <Link to={`https://blog-api.tsunyoku.xyz/auth/login?redirect_uri=${window.location.origin}/auth/callback`}>
                   <Button variant="contained">

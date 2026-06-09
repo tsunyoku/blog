@@ -1,9 +1,7 @@
 import { Container, Paper, Stack, Typography } from "@mui/material";
 import { Post as PostModel } from "../models/Post"
 import { formatDate } from "date-fns";
-import Markdown from "markdown-to-jsx";
-import Code from "./Code";
-import ResponsiveImage from "./ResponsiveImage";
+import MarkdownContent from "./MarkdownContent";
 
 interface PostProps {
   post: PostModel;
@@ -23,17 +21,8 @@ export default function Post({ post }: PostProps) {
             <Typography variant="subtitle2">
               Published {formatDate(post.publishedAt, "MMMM do yyyy, h:mm:ss a")}
             </Typography>
-            <Typography>
-              <Markdown options={{
-                overrides: {
-                  Code: {
-                    component: Code
-                  },
-                  img: {
-                    component: ResponsiveImage,
-                  },
-                }
-              }}>{post.content}</Markdown>
+            <Typography component="div">
+              <MarkdownContent>{post.content}</MarkdownContent>
             </Typography>
           </Stack>
         </Container>
