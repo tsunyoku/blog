@@ -44,7 +44,12 @@ export default function Home() {
   return (
     <>
       <br />
-      <Stack direction="column" spacing={1} justifyContent="center" alignItems="center">
+      <Stack
+        direction="column"
+        spacing={1}
+        alignItems="stretch"
+        sx={{ width: "100%", maxWidth: 900, mx: "auto" }}
+      >
         {posts.map(post => <PostPreview post={post} />)}
       </Stack>
     </>
