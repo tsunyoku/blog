@@ -62,3 +62,15 @@ export async function fetchPost(postId: string): Promise<Post | null> {
         publishedAt: new Date(responseData.publishedAt),
     };
 }
+
+export async function deletePost(postId: string): Promise<boolean> {
+    const response = await fetch(`${baseUrl}/posts/${postId}`, {
+        credentials: "include",
+        method: "DELETE",
+        headers: {
+            Accept: "application/json",
+            "User-Agent": "tsunyoku-blog",
+        },
+    });
+    return response.ok;
+}
