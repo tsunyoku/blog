@@ -39,7 +39,7 @@ export async function createPost(title: string, content: string): Promise<string
     }
 
     const responseData = await response.json();
-    return responseData.postId;
+    return responseData.id;
 }
 
 export async function fetchPost(postId: string): Promise<Post | null> {
