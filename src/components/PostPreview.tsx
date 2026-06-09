@@ -14,7 +14,7 @@ export default function PostPreview({ post }: PostPreviewProps) {
   const partialContent = post.content.split(" ").slice(0, 20).join(" ") + "...";
 
   return (
-    <Paper>
+    <Paper sx={{ width: "100%" }}>
       <Container>
         <Stack direction="column" sx={{
           justifyContent: "space-between",
